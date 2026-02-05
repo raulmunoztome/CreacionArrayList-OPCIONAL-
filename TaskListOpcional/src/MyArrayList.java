@@ -20,12 +20,10 @@ public class MyArrayList {
 	public void setTamV(int valor) {
 		this.tamV = valor;
 	}
-	public int getTamV() {
-		return this.tamV;
-	}
+
 	
 	public int length() {
-		return this.getTamV();
+		return tamV;
 	}
 	
 	public int getSize() {
@@ -37,33 +35,34 @@ public class MyArrayList {
 	}
 	
 	public void add(String contenido) {
-		int ocupado = this.getSize();
-		int largo = this.length();
-		
-		if(ocupado == largo) {
-			String[] extendido = new String[vector1.length*2];
-			for(int i = 0; i < largo; ++i) {
+
+		if(size == tamV) {
+			String[] extendido = new String[tamV*2];
+			for(int i = 0; i < tamV; ++i) {
 				extendido[i] = vector1[i];
 			}
 			
 			vector1 = extendido;
-			this.setTamV(extendido.length);
-			vector1[this.getTamV()] = contenido;
+			tamV = tamV*2;
+			vector1[tamV] = contenido;
 			
 		}
 		else {
-			vector1[this.getSize()] = contenido;
+			vector1[size] = contenido;
 		}
 		
-		this.setSize(this.getSize()+1);
+		++size;
 	}
 	
 	public void add(int index, String conten) {
-		add(conten);
+		if(indice<0)throw new Exception("Error en indice negativo");
+		if(index > tamV) throw new Exception("Posicion fuera de rango");
+		vector1[index] = conten;
 	}
 	
 	public void set(int posicion, String info) throws Exception {
-		if(posicion > vector1.length) throw new Exception("Posicion fuera de rango");
+		if(indice<0)throw new Exception("Error en indice negativo");
+		if(posicion > tamV) throw new Exception("Posicion fuera de rango");
 		vector1[posicion] = info;	
 	}
 	
