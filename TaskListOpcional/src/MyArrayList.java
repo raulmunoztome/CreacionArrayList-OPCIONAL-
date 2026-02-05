@@ -45,30 +45,27 @@ public class MyArrayList {
 			
 			vector1 = extendido;
 			tamV *= 2;
-			vector1[size] = contenido;
-			
+	
 		}
-		else {
-			vector1[size] = contenido;
-		}
-		
+		vector1[size] = contenido;
 		++size;
 	}
 	
 	public void add(int index, String conten) {
 		
-		if (index < 0 || index > size) throw new Exception("Índice fuera de rango");
+		if(index < 0 || index > size) throw new Exception("Índice fuera de rango");
 
-	    if (size == tamV) {
+	    if(size == tamV) {
 	        String[] extendido = new String[tamV * 2];
-	        for (int i = 0; i < tamV; i++) {
+	        for(int i = 0; i < tamV; i++) {
 	            extendido[i] = vector1[i];
 	        }
+			
 	        vector1 = extendido;
 	        tamV *= 2;
 	    }
 	
-	    for (int i = size; i > index; i--) {
+	    for(int i = size; i > index; i--) {
 	        vector1[i] = vector1[i - 1];
 	    }
 	
