@@ -57,15 +57,13 @@ public class MyArrayList {
 	
 	public void add(int index, String conten) {
 		
-		if(index < 0)throw new Exception("Error en indice negativo");
-		if(index > tamV) throw new Exception("Posicion fuera de rango");
-		vector1[index] = conten;
+		set(index,conten);
 	}
 	
 	public void set(int posicion, String info) throws Exception {
 		
 		if(posicion < 0)throw new Exception("Error en indice negativo");
-		if(posicion > tamV) throw new Exception("Posicion fuera de rango");
+		if(posicion >= tamV) throw new Exception("Posicion fuera de rango");
 		vector1[posicion] = info;	
 	}
 	
